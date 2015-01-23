@@ -19,6 +19,8 @@ To test a role, the role must be installed on your host machine (you can install
 
 It should take a few minutes to download each of the base boxes the first time, but after that, it takes about a minute to boot each VM, then run the playbook with your role(s).
 
+After testing a role, you can destroy the four VMs with `vagrant destroy -f`. You can also just build one particular VM with `vagrant up ubuntu1204` (as an example), or re-run the ansible playbook with `vagrant provision ubuntu1204`.
+
 ## License
 
 MIT
