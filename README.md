@@ -6,10 +6,10 @@ On GitHub, I generally use Travis CI to run a minimal set of tests against the T
 
 For this, I use Vagrant and some VirtualBox boxes that I build to follow the latest releases of the OSes I support. Currently, you can find the boxes I use on [Atlas](https://atlas.hashicorp.com/geerlingguy) (they are hosted at [files.midwesternmac.com](http://files.midwesternmac.com/)), and this project runs a playbook against the following OSes:
 
-  - Ubuntu 12.04.x
-  - Ubuntu 14.04.x
-  - CentOS 6.x
-  - CentOS 7.x
+  - Ubuntu 12.04.x (192.168.3.3)
+  - Ubuntu 14.04.x (192.168.3.3)
+  - CentOS 6.x (192.168.3.5)
+  - CentOS 7.x (192.168.3.4)
 
 The project is extremely simple, and simply requires [Vagrant](https://www.vagrantup.com/), [VirtualBox](https://www.virtualbox.org/), and [Ansible](http://docs.ansible.com/intro_installation.html) to be installed on your host machine.
 
