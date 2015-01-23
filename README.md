@@ -4,7 +4,7 @@ I maintain [over 50 roles](https://galaxy.ansible.com/list#/users/219) on Ansibl
 
 On GitHub, I generally use Travis CI to run a minimal set of tests against the Travis CI environment (currently Ubuntu 12.04). I wrote about this setup on the Server Check.in Blog: [Testing Ansible Roles with Travis CI on GitHub](https://servercheck.in/blog/testing-ansible-roles-travis-ci-github). It's impossible to bootstrap extra test VMs inside the Travis environment due to Travis' use of OpenVZ. Thus, to run Ansible playbooks against CentOS and other versions of Ubuntu, I have to rely on a local configuration.
 
-For this, I use Vagrant and some VirtualBox boxes that I build to follow the latest releases of the OSes I support. Currently, you can find the boxes I use on [Atlas](https://atlas.hashicorp.com/geerlingguy) (they are hosted at files.midwesternmac.com), and this project uses the following:
+For this, I use Vagrant and some VirtualBox boxes that I build to follow the latest releases of the OSes I support. Currently, you can find the boxes I use on [Atlas](https://atlas.hashicorp.com/geerlingguy) (they are hosted at [files.midwesternmac.com](http://files.midwesternmac.com/)), and this project runs a playbook against the following OSes:
 
   - Ubuntu 12.04.x
   - Ubuntu 14.04.x
@@ -18,6 +18,10 @@ The project is extremely simple, and simply requires [Vagrant](https://www.vagra
 To test a role, the role must be installed on your host machine (you can install galaxy roles via `$ ansible-galaxy install [rolename]`, but this project is more focused on testing roles you'd be working on locally). Just add the role to `playbook.yml` and run `vagrant up`.
 
 It should take a few minutes to download each of the base boxes the first time, but after that, it takes about a minute to boot each VM, then run the playbook with your role(s).
+
+## License
+
+MIT
 
 ## Author Information
 
