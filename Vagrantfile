@@ -11,10 +11,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
     # VirtualBox.
     ubuntu1404.vm.provider :virtualbox do |v|
-      v.customize ["modifyvm", :id, "--name", "ubuntu1404.dev"]
+      v.name = "ubuntu1404.dev"
+      v.memory = 512
+      v.cpus = 2
       v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
-      v.customize ["modifyvm", :id, "--memory", 512]
-      v.customize ["modifyvm", :id, "--cpus", 2]
       v.customize ["modifyvm", :id, "--ioapic", "on"]
     end
 
@@ -32,10 +32,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
     # VirtualBox.
     ubuntu1204.vm.provider :virtualbox do |v|
-      v.customize ["modifyvm", :id, "--name", "ubuntu1204.dev"]
+      v.name = "ubuntu1204.dev"
+      v.memory = 512
+      v.cpus = 2
       v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
-      v.customize ["modifyvm", :id, "--memory", 512]
-      v.customize ["modifyvm", :id, "--cpus", 2]
       v.customize ["modifyvm", :id, "--ioapic", "on"]
     end
 
@@ -53,10 +53,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
     # VirtualBox.
     centos7.vm.provider :virtualbox do |v|
-      v.customize ["modifyvm", :id, "--name", "centos7.dev"]
+      v.name = "centos7.dev"
+      v.memory = 512
+      v.cpus = 2
       v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
-      v.customize ["modifyvm", :id, "--memory", 512]
-      v.customize ["modifyvm", :id, "--cpus", 2]
       v.customize ["modifyvm", :id, "--ioapic", "on"]
     end
 
@@ -74,10 +74,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
     # VirtualBox.
     centos6.vm.provider :virtualbox do |v|
-      v.customize ["modifyvm", :id, "--name", "centos6.dev"]
+      v.name = "centos6.dev"
+      v.memory = 512
+      v.cpus = 2
       v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
-      v.customize ["modifyvm", :id, "--memory", 512]
-      v.customize ["modifyvm", :id, "--cpus", 2]
       v.customize ["modifyvm", :id, "--ioapic", "on"]
     end
 

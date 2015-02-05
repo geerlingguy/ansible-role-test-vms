@@ -3,11 +3,10 @@
   gather_facts: yes
   sudo: yes
 
-  vars:
-    mysql_innodb_log_file_size: "128M"
-    mysql_root_password: "test1234"
+  vars: []
 
   pre_tasks: []
 
-  roles:
-    - geerlingguy.mysql
+  roles: []
+
+  tasks: []
