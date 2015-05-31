@@ -18,8 +18,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     # VirtualBox.
     ubuntu1404.vm.provider :virtualbox do |v|
       v.name = "ubuntu1404.dev"
-      v.memory = 512
-      v.cpus = 2
+      v.memory = 1024
+      v.cpus = 3
       v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
       v.customize ["modifyvm", :id, "--ioapic", "on"]
     end
@@ -40,8 +40,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     # VirtualBox.
     ubuntu1204.vm.provider :virtualbox do |v|
       v.name = "ubuntu1204.dev"
-      v.memory = 512
-      v.cpus = 2
+      v.memory = 1024
+      v.cpus = 3
       v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
       v.customize ["modifyvm", :id, "--ioapic", "on"]
     end
@@ -62,8 +62,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     # VirtualBox.
     centos7.vm.provider :virtualbox do |v|
       v.name = "centos7.dev"
-      v.memory = 512
-      v.cpus = 2
+      v.memory = 1024
+      v.cpus = 3
       v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
       v.customize ["modifyvm", :id, "--ioapic", "on"]
     end
@@ -84,8 +84,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     # VirtualBox.
     centos6.vm.provider :virtualbox do |v|
       v.name = "centos6.dev"
-      v.memory = 512
-      v.cpus = 2
+      v.memory = 1024
+      v.cpus = 3
       v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
       v.customize ["modifyvm", :id, "--ioapic", "on"]
     end
