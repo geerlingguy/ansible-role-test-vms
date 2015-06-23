@@ -54,7 +54,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     centos7.vm.box = "geerlingguy/centos7"
     centos7.vm.network :private_network, ip: "192.168.3.4"
 
-
     # Ansible.
     centos7.vm.provision "ansible" do |ansible|
       ansible.playbook = "playbook.yml"
