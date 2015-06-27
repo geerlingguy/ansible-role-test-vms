@@ -16,8 +16,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   # VMware Fusion.
   config.vm.provider :vmware_fusion do |v, override|
-    # HGFS kernel module currently doesn't load correctly for native shares.
-    override.vm.synced_folder ".", "/vagrant", type: 'nfs'
     v.vmx["memsize"] = 1024
     v.vmx["numvcpus"] = 3
   end
