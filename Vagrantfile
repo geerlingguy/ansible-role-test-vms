@@ -48,7 +48,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     end
   end
 
-  # Ubuntu 12.02 - Precise Pangolin
+  # Ubuntu 12.04 - Precise Pangolin
   config.vm.define "ubuntu1204" do |ubuntu1204|
     ubuntu1204.vm.hostname = "ubuntu1204test"
     if not TEST_MODE
