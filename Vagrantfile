@@ -4,7 +4,7 @@
 VAGRANTFILE_API_VERSION = "2"
 
 # Set to 'true' when testing new base box builds locally.
-TEST_MODE = false
+TEST_MODE = true
 LOCAL_BOX_DIRECTORY = "file://~/Downloads/"
 
 # Uncomment when explicitly testing VirtualBox.
@@ -32,6 +32,22 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     v.vmx["numvcpus"] = 3
   end
 
+  # Ubuntu 16.04 - Xenial Xerus
+  config.vm.define "ubuntu1604" do |ubuntu1604|
+    ubuntu1604.vm.hostname = "ubuntu1604test"
+    if not TEST_MODE
+      ubuntu1604.vm.box = "geerlingguy/ubuntu1604"
+    else
+      ubuntu1604.vm.box = LOCAL_BOX_DIRECTORY + PROVIDER_UNDER_TEST + "-ubuntu1604.box"
+    end
+    ubuntu1604.vm.network :private_network, ip: NETWORK_PRIVATE_IP_PREFIX + "2"
+
+    # Ansible.
+    ubuntu1604.vm.provision "ansible" do |ansible|
+      ansible.playbook = "playbook.yml"
+    end
+  end
+
   # Ubuntu 14.04 - Trusty Tahr
   config.vm.define "ubuntu1404" do |ubuntu1404|
     ubuntu1404.vm.hostname = "ubuntu1404test"
@@ -40,7 +56,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     else
       ubuntu1404.vm.box = LOCAL_BOX_DIRECTORY + PROVIDER_UNDER_TEST + "-ubuntu1404.box"
     end
-    ubuntu1404.vm.network :private_network, ip: NETWORK_PRIVATE_IP_PREFIX + "2"
+    ubuntu1404.vm.network :private_network, ip: NETWORK_PRIVATE_IP_PREFIX + "3"
 
     # Ansible.
     ubuntu1404.vm.provision "ansible" do |ansible|
@@ -56,7 +72,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     else
       ubuntu1204.vm.box = LOCAL_BOX_DIRECTORY + PROVIDER_UNDER_TEST + "-ubuntu1204.box"
     end
-    ubuntu1204.vm.network :private_network, ip: NETWORK_PRIVATE_IP_PREFIX + "3"
+    ubuntu1204.vm.network :private_network, ip: NETWORK_PRIVATE_IP_PREFIX + "4"
 
     # Ansible.
     ubuntu1204.vm.provision "ansible" do |ansible|
@@ -72,7 +88,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     else
       centos7.vm.box = LOCAL_BOX_DIRECTORY + PROVIDER_UNDER_TEST + "-centos7.box"
     end
-    centos7.vm.network :private_network, ip: NETWORK_PRIVATE_IP_PREFIX + "4"
+    centos7.vm.network :private_network, ip: NETWORK_PRIVATE_IP_PREFIX + "5"
 
     # Ansible.
     centos7.vm.provision "ansible" do |ansible|
@@ -88,7 +104,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     else
       centos6.vm.box = LOCAL_BOX_DIRECTORY + PROVIDER_UNDER_TEST + "-centos6.box"
     end
-    centos6.vm.network :private_network, ip: NETWORK_PRIVATE_IP_PREFIX + "5"
+    centos6.vm.network :private_network, ip: NETWORK_PRIVATE_IP_PREFIX + "6"
 
     # Ansible.
     centos6.vm.provision "ansible" do |ansible|
