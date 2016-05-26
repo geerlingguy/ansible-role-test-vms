@@ -1,15 +1,12 @@
-# -*- mode: ruby -*-
-# vi: set ft=ruby :
-
 VAGRANTFILE_API_VERSION = "2"
 
 # Set to 'true' when testing new base box builds locally.
-TEST_MODE = true
-LOCAL_BOX_DIRECTORY = "file://~/Downloads/"
+TEST_MODE = FALSE
+LOCAL_BOX_DIRECTORY = "~/Downloads/"
 
 # Uncomment when explicitly testing VirtualBox.
 PROVIDER_UNDER_TEST = "virtualbox"
-NETWORK_PRIVATE_IP_PREFIX = "172.16.3."
+NETWORK_PRIVATE_IP_PREFIX = "10.30.148."
 
 # Uncomment when explicitly testing VMWare.
 # PROVIDER_UNDER_TEST = "vmware"
@@ -84,7 +81,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.define "centos7" do |centos7|
     centos7.vm.hostname = "centos7test"
     if not TEST_MODE
-      centos7.vm.box = "geerlingguy/centos7"
+      centos7.vm.box = "centos/7"
     else
       centos7.vm.box = LOCAL_BOX_DIRECTORY + PROVIDER_UNDER_TEST + "-centos7.box"
     end
