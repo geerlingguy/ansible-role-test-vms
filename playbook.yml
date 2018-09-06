@@ -3,10 +3,15 @@
   gather_facts: yes
   become: yes
 
-  vars: []
+  vars:
+    jenkins_version: 1.644
 
-  pre_tasks: []
+  pre_tasks:
+    - name: Update apt cache.
+      apt: update_cache=yes
+      when: ansible_os_family == 'Debian'
 
-  roles: []
+  roles:
+    - geerlingguy.jenkins
 
   tasks: []

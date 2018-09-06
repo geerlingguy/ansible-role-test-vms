@@ -4,8 +4,8 @@
 VAGRANTFILE_API_VERSION = "2"
 
 # Set to 'true' when testing new base box builds locally.
-TEST_MODE = true
-LOCAL_BOX_DIRECTORY = "file://~/Downloads/"
+TEST_MODE = false
+# LOCAL_BOX_DIRECTORY = "file://~/Downloads/"
 
 # Uncomment when explicitly testing VirtualBox.
 PROVIDER_UNDER_TEST = "virtualbox"
@@ -17,19 +17,22 @@ NETWORK_PRIVATE_IP_PREFIX = "172.16.3."
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.ssh.insert_key = false
-
-  # VirtualBox.
-  config.vm.provider :virtualbox do |v|
-    v.memory = 1024
-    v.cpus = 3
-    v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
-    v.customize ["modifyvm", :id, "--ioapic", "on"]
-  end
+  config.vm.synced_folder '.', '/vagrant', type: 'nfs'
 
   # VMware Fusion.
   config.vm.provider :vmware_fusion do |v, override|
+    v.gui = false
     v.vmx["memsize"] = 1024
-    v.vmx["numvcpus"] = 3
+    v.vmx["numvcpus"] = 1
+  end
+
+  # VirtualBox.
+  config.vm.provider :virtualbox do |v|
+    v.gui = false
+    v.memory = 1024
+    v.cpus = 1
+    v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
+    v.customize ["modifyvm", :id, "--ioapic", "on"]
   end
 
   # Ubuntu 16.04 - Xenial Xerus

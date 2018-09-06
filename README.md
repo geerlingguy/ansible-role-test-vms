@@ -1,6 +1,8 @@
-# Multi-Platform Ansible Role and Playbook Test VMs
+# (DEPRECATED) Multi-Platform Ansible Role and Playbook Test VMs
 
-I maintain [over 50 roles](https://galaxy.ansible.com/list#/users/219) on Ansible Galaxy, and a few dozen more locally. Since I run both CentOS (a RedHat derivative) and Ubuntu/Debian-based servers, I like to have a reliable platform to test my roles and playbooks everywhere with minimal effort.
+> **Deprecation Notice**: I no longer maintain this repository. Please see my book, [Ansible for DevOps](https://www.ansiblefordevops.com), for more suggestions for local development and testing of Ansible roles and playbooks.
+
+I maintain [hundreds of roles](https://galaxy.ansible.com/geerlingguy) on Ansible Galaxy, and dozens more locally. Since I run both CentOS (a RedHat derivative) and Ubuntu/Debian-based servers, I like to have a reliable platform to test my roles and playbooks everywhere with minimal effort.
 
 On GitHub, I generally use Travis CI to run a minimal set of tests against the Travis CI environment (currently Ubuntu 12.04). I wrote about this setup on the Server Check.in Blog: [Testing Ansible Roles with Travis CI on GitHub](https://servercheck.in/blog/testing-ansible-roles-travis-ci-github). It's impossible to bootstrap extra test VMs inside the Travis environment due to Travis' use of OpenVZ. Thus, to run Ansible playbooks against CentOS and other versions of Ubuntu, I have to rely on a local configuration.
 
